@@ -35,13 +35,13 @@
             this.MPAdministar = new System.Windows.Forms.ToolStripMenuItem();
             this.MAProfesional = new System.Windows.Forms.ToolStripMenuItem();
             this.MAVisitantes = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MPCita = new System.Windows.Forms.ToolStripMenuItem();
             this.MCReservas = new System.Windows.Forms.ToolStripMenuItem();
             this.MCConsultar = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MPReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +51,7 @@
             this.MSPSystem,
             this.MPAdministar,
             this.MPCita,
-            this.reportesToolStripMenuItem,
+            this.MPReportes,
             this.helpToolStripMenuItem});
             this.MSPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MSPrincipal.Name = "MSPrincipal";
@@ -71,13 +71,13 @@
             // MSLogout
             // 
             this.MSLogout.Name = "MSLogout";
-            this.MSLogout.Size = new System.Drawing.Size(180, 22);
+            this.MSLogout.Size = new System.Drawing.Size(112, 22);
             this.MSLogout.Text = "Logout";
             // 
             // MSExit
             // 
             this.MSExit.Name = "MSExit";
-            this.MSExit.Size = new System.Drawing.Size(180, 22);
+            this.MSExit.Size = new System.Drawing.Size(112, 22);
             this.MSExit.Text = "Exit";
             // 
             // MPAdministar
@@ -92,20 +92,14 @@
             // MAProfesional
             // 
             this.MAProfesional.Name = "MAProfesional";
-            this.MAProfesional.Size = new System.Drawing.Size(180, 22);
+            this.MAProfesional.Size = new System.Drawing.Size(133, 22);
             this.MAProfesional.Text = "Profesional";
             // 
             // MAVisitantes
             // 
             this.MAVisitantes.Name = "MAVisitantes";
-            this.MAVisitantes.Size = new System.Drawing.Size(180, 22);
+            this.MAVisitantes.Size = new System.Drawing.Size(133, 22);
             this.MAVisitantes.Text = "Visitantes";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
             // 
             // MPCita
             // 
@@ -119,23 +113,23 @@
             // MCReservas
             // 
             this.MCReservas.Name = "MCReservas";
-            this.MCReservas.Size = new System.Drawing.Size(180, 22);
+            this.MCReservas.Size = new System.Drawing.Size(125, 22);
             this.MCReservas.Text = "Reservar";
             // 
             // MCConsultar
             // 
             this.MCConsultar.Name = "MCConsultar";
-            this.MCConsultar.Size = new System.Drawing.Size(180, 22);
+            this.MCConsultar.Size = new System.Drawing.Size(125, 22);
             this.MCConsultar.Text = "Consultar";
             // 
-            // reportesToolStripMenuItem
+            // MPReportes
             // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MPReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.confirmadasToolStripMenuItem,
             this.canceladasToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem.Text = "Reportes";
+            this.MPReportes.Name = "MPReportes";
+            this.MPReportes.Size = new System.Drawing.Size(65, 20);
+            this.MPReportes.Text = "Reportes";
             // 
             // confirmadasToolStripMenuItem
             // 
@@ -148,6 +142,12 @@
             this.canceladasToolStripMenuItem.Name = "canceladasToolStripMenuItem";
             this.canceladasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.canceladasToolStripMenuItem.Text = "Canceladas";
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // Principal
             // 
@@ -179,7 +179,7 @@
         private System.Windows.Forms.ToolStripMenuItem MPCita;
         private System.Windows.Forms.ToolStripMenuItem MCReservas;
         private System.Windows.Forms.ToolStripMenuItem MCConsultar;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MPReportes;
         private System.Windows.Forms.ToolStripMenuItem confirmadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canceladasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
