@@ -19,7 +19,16 @@ namespace Reservaciones.DAO
             string query = $@"INSERT INTO cliente (nombre, apellido, tipo_documento, documento)
                                 VALUES('{model.Nombre}','{model.Apellido}','{model.TipoDocumento}','{model.Documento}')";
 
-            return ExecuteNonQuery(query);
+            long id = ExecuteScalar(query);
+
+            foreach (TelefonoClienteModel item in model.Telefonos)
+            {
+                query = $"INSERT telefono_cliente(id_cliente, numero, tipo)" +
+                        $"VALUES('{id}', '{item.Numero}','{item.Tipo}')";
+                ExecuteNonQuery(query);
+            }
+
+            return true;
         }
 
         public bool Update(ClienteModel model)
@@ -66,35 +75,22 @@ namespace Reservaciones.DAO
             return false;
         }
 
-
-        public bool ExecuteNonQuery2(ClienteModel model)
+        private long ExecuteScalar(string query)
         {
             try
             {
-                string query = $"INSERT INTO cliente (nombre, apellido, tipo_documento, documento)"+
-                               $"VALUES('{model.Nombre}','{model.Apellido}','{model.TipoDocumento}','{model.Documento}');"+
-                               $"SELECT LAST_INSERT_ID();";
-
                 cn = ConexionDB.GetMysqlConnection();
                 cmd = new MySqlCommand();
                 cmd.CommandText = query;
-                cmd.Connection = cn;
 
-                long id = Convert.ToInt64(cmd.ExecuteScalar());
-
-                foreach (TelefonoClienteModel item in model.Telefonos)
-                {
-                    query = $"INSERT telefono_cliente(id_cliente, numero, tipo)" +
-                            $"VALUES('{id}', '{item.Numero}','{item.Tipo}')";
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                }
+                return Convert.ToInt64(cmd.ExecuteScalar());
+               
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show(e.Message );
-                System.Windows.Forms.MessageBox.Show(e.StackTrace );
-                return false;
+                System.Windows.Forms.MessageBox.Show(e.Message);
+                System.Windows.Forms.MessageBox.Show(e.StackTrace);
+                return 0;
             }
             finally
             {
@@ -104,7 +100,6 @@ namespace Reservaciones.DAO
                     cn.Dispose();
                 }
             }
-            return false;
         }
 
         public List<ClienteModel> GetClientes() 

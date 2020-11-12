@@ -42,7 +42,7 @@ namespace Reservaciones.Views.Cliente
                 telefono.Numero = item.Cells[1].Value.ToString();
                 modelo.Telefonos.Add(telefono);
             }
-            if (clienteDAO.ExecuteNonQuery2(modelo)) 
+            if (clienteDAO.Insert(modelo)) 
             {
                 MessageBox.Show("Correcto");
             }
