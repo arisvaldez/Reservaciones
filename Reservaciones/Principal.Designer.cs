@@ -41,7 +41,8 @@
             this.MPReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.confirmadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.canceladasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MPHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.probarDBToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@
             this.MPAdministar,
             this.MPCita,
             this.MPReportes,
-            this.helpToolStripMenuItem});
+            this.MPHelp,
+            this.probarDBToolStripMenuItem});
             this.MSPrincipal.Location = new System.Drawing.Point(0, 0);
             this.MSPrincipal.Name = "MSPrincipal";
             this.MSPrincipal.Size = new System.Drawing.Size(1041, 24);
@@ -92,14 +94,16 @@
             // MAProfesional
             // 
             this.MAProfesional.Name = "MAProfesional";
-            this.MAProfesional.Size = new System.Drawing.Size(133, 22);
+            this.MAProfesional.Size = new System.Drawing.Size(180, 22);
             this.MAProfesional.Text = "Profesional";
+            this.MAProfesional.Click += new System.EventHandler(this.MAProfesional_Click);
             // 
             // MAVisitantes
             // 
             this.MAVisitantes.Name = "MAVisitantes";
-            this.MAVisitantes.Size = new System.Drawing.Size(133, 22);
+            this.MAVisitantes.Size = new System.Drawing.Size(180, 22);
             this.MAVisitantes.Text = "Visitantes";
+            this.MAVisitantes.Click += new System.EventHandler(this.MAVisitantes_Click);
             // 
             // MPCita
             // 
@@ -134,20 +138,27 @@
             // confirmadasToolStripMenuItem
             // 
             this.confirmadasToolStripMenuItem.Name = "confirmadasToolStripMenuItem";
-            this.confirmadasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.confirmadasToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.confirmadasToolStripMenuItem.Text = "Completadas";
             // 
             // canceladasToolStripMenuItem
             // 
             this.canceladasToolStripMenuItem.Name = "canceladasToolStripMenuItem";
-            this.canceladasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.canceladasToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.canceladasToolStripMenuItem.Text = "Canceladas";
             // 
-            // helpToolStripMenuItem
+            // MPHelp
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.MPHelp.Name = "MPHelp";
+            this.MPHelp.Size = new System.Drawing.Size(44, 20);
+            this.MPHelp.Text = "Help";
+            // 
+            // probarDBToolStripMenuItem
+            // 
+            this.probarDBToolStripMenuItem.Name = "probarDBToolStripMenuItem";
+            this.probarDBToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.probarDBToolStripMenuItem.Text = "probarDB";
+            this.probarDBToolStripMenuItem.Click += new System.EventHandler(this.probarDBToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -182,7 +193,8 @@
         private System.Windows.Forms.ToolStripMenuItem MPReportes;
         private System.Windows.Forms.ToolStripMenuItem confirmadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem canceladasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MPHelp;
+        private System.Windows.Forms.ToolStripMenuItem probarDBToolStripMenuItem;
     }
 }
 
