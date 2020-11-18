@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.TxtApellido = new System.Windows.Forms.TextBox();
             this.TxtNumeroDocumento = new System.Windows.Forms.TextBox();
@@ -37,14 +38,22 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnRegistrar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnAgregarTelefono = new System.Windows.Forms.Button();
+            this.BtnRemoverTelefono = new System.Windows.Forms.Button();
             this.DGVCliente = new System.Windows.Forms.DataGridView();
             this.DgvTelefono = new System.Windows.Forms.DataGridView();
-            this.TipoTelefono = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.LblMensaje = new System.Windows.Forms.Label();
+            this.TmrMensaje = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.CmbTipoTelefono = new System.Windows.Forms.ComboBox();
+            this.TxtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTelefono)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TxtNombre
@@ -117,7 +126,7 @@
             // 
             // BtnRegistrar
             // 
-            this.BtnRegistrar.Location = new System.Drawing.Point(20, 429);
+            this.BtnRegistrar.Location = new System.Drawing.Point(54, 341);
             this.BtnRegistrar.Name = "BtnRegistrar";
             this.BtnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.BtnRegistrar.TabIndex = 8;
@@ -125,68 +134,139 @@
             this.BtnRegistrar.UseVisualStyleBackColor = true;
             this.BtnRegistrar.Click += new System.EventHandler(this.BtnRegistrar_Click);
             // 
-            // button2
+            // BtnAgregarTelefono
             // 
-            this.button2.Location = new System.Drawing.Point(101, 429);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnAgregarTelefono.Location = new System.Drawing.Point(53, 248);
+            this.BtnAgregarTelefono.Name = "BtnAgregarTelefono";
+            this.BtnAgregarTelefono.Size = new System.Drawing.Size(61, 23);
+            this.BtnAgregarTelefono.TabIndex = 9;
+            this.BtnAgregarTelefono.Text = "Agregar";
+            this.BtnAgregarTelefono.UseVisualStyleBackColor = true;
+            this.BtnAgregarTelefono.Click += new System.EventHandler(this.BtnAgregarTelefono_Click);
             // 
-            // button3
+            // BtnRemoverTelefono
             // 
-            this.button3.Location = new System.Drawing.Point(182, 429);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnRemoverTelefono.Location = new System.Drawing.Point(120, 248);
+            this.BtnRemoverTelefono.Name = "BtnRemoverTelefono";
+            this.BtnRemoverTelefono.Size = new System.Drawing.Size(61, 23);
+            this.BtnRemoverTelefono.TabIndex = 10;
+            this.BtnRemoverTelefono.Text = "Remover";
+            this.BtnRemoverTelefono.UseVisualStyleBackColor = true;
+            this.BtnRemoverTelefono.Click += new System.EventHandler(this.BtnRemoverTelefono_Click);
             // 
             // DGVCliente
             // 
             this.DGVCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVCliente.Location = new System.Drawing.Point(12, 490);
+            this.DGVCliente.Location = new System.Drawing.Point(12, 389);
             this.DGVCliente.Name = "DGVCliente";
             this.DGVCliente.Size = new System.Drawing.Size(887, 186);
             this.DGVCliente.TabIndex = 11;
             // 
             // DgvTelefono
             // 
+            this.DgvTelefono.AllowUserToAddRows = false;
             this.DgvTelefono.AllowUserToDeleteRows = false;
             this.DgvTelefono.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DgvTelefono.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvTelefono.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TipoTelefono,
+            this.Tipo,
             this.Numero});
-            this.DgvTelefono.Location = new System.Drawing.Point(51, 185);
+            this.DgvTelefono.Location = new System.Drawing.Point(197, 169);
             this.DgvTelefono.Name = "DgvTelefono";
+            this.DgvTelefono.ReadOnly = true;
             this.DgvTelefono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DgvTelefono.Size = new System.Drawing.Size(348, 150);
+            this.DgvTelefono.Size = new System.Drawing.Size(388, 150);
             this.DgvTelefono.TabIndex = 12;
             // 
-            // TipoTelefono
+            // LblMensaje
             // 
-            this.TipoTelefono.HeaderText = "Tipo";
-            this.TipoTelefono.Items.AddRange(new object[] {
+            this.LblMensaje.AutoSize = true;
+            this.LblMensaje.Location = new System.Drawing.Point(9, 9);
+            this.LblMensaje.Name = "LblMensaje";
+            this.LblMensaje.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LblMensaje.Size = new System.Drawing.Size(35, 13);
+            this.LblMensaje.TabIndex = 13;
+            this.LblMensaje.Text = "label5";
+            // 
+            // TmrMensaje
+            // 
+            this.TmrMensaje.Interval = 2500;
+            this.TmrMensaje.Tick += new System.EventHandler(this.panel);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.LblMensaje);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(912, 28);
+            this.panel1.TabIndex = 14;
+            // 
+            // CmbTipoTelefono
+            // 
+            this.CmbTipoTelefono.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTipoTelefono.FormattingEnabled = true;
+            this.CmbTipoTelefono.Items.AddRange(new object[] {
             "Residencial",
             "Celular"});
-            this.TipoTelefono.Name = "TipoTelefono";
+            this.CmbTipoTelefono.Location = new System.Drawing.Point(53, 169);
+            this.CmbTipoTelefono.Name = "CmbTipoTelefono";
+            this.CmbTipoTelefono.Size = new System.Drawing.Size(121, 21);
+            this.CmbTipoTelefono.TabIndex = 15;
+            // 
+            // TxtTelefono
+            // 
+            this.TxtTelefono.Location = new System.Drawing.Point(53, 209);
+            this.TxtTelefono.Mask = "(999) 000-0000";
+            this.TxtTelefono.Name = "TxtTelefono";
+            this.TxtTelefono.Size = new System.Drawing.Size(135, 20);
+            this.TxtTelefono.TabIndex = 16;
+            this.TxtTelefono.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(53, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Tipo";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(53, 193);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(44, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Numero";
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
             // 
             // Numero
             // 
             this.Numero.HeaderText = "Numero";
             this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // FrmCLiente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 688);
+            this.ClientSize = new System.Drawing.Size(912, 590);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TxtTelefono);
+            this.Controls.Add(this.CmbTipoTelefono);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DgvTelefono);
             this.Controls.Add(this.DGVCliente);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.BtnRemoverTelefono);
+            this.Controls.Add(this.BtnAgregarTelefono);
             this.Controls.Add(this.BtnRegistrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -200,6 +280,8 @@
             this.Text = "FrmCLiente";
             ((System.ComponentModel.ISupportInitialize)(this.DGVCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTelefono)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,11 +298,18 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button BtnRegistrar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnAgregarTelefono;
+        private System.Windows.Forms.Button BtnRemoverTelefono;
         private System.Windows.Forms.DataGridView DGVCliente;
         private System.Windows.Forms.DataGridView DgvTelefono;
-        private System.Windows.Forms.DataGridViewComboBoxColumn TipoTelefono;
+        private System.Windows.Forms.Label LblMensaje;
+        private System.Windows.Forms.Timer TmrMensaje;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox CmbTipoTelefono;
+        private System.Windows.Forms.MaskedTextBox TxtTelefono;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
     }
 }

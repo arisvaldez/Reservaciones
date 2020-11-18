@@ -19,6 +19,7 @@ namespace Reservaciones.Views.Cliente
         public FrmCLiente()
         {
             InitializeComponent();
+            panel1.Hide();
             var data = clienteDAO.GetClientes();
             DGVCliente.DataSource = data;
         }
@@ -37,19 +38,54 @@ namespace Reservaciones.Views.Cliente
             {
                 if (item.Cells[0].Value == null)
                     continue;
+
                 var telefono = new TelefonoClienteModel();
                 telefono.Tipo = item.Cells[0].Value.ToString();
                 telefono.Numero = item.Cells[1].Value.ToString();
                 modelo.Telefonos.Add(telefono);
             }
+
             if (clienteDAO.Insert(modelo)) 
             {
-                MessageBox.Show("Correcto");
+                LblMensaje.Text = "Se insertó correctamente";
+                panel1.Show();
+                panel1.BackColor = Color.Green;
+                TmrMensaje.Start();
             }
             else
             {
-                MessageBox.Show("Falló");
+
+                LblMensaje.Text = "Ocurrio un error, intente mas tarde";
+                panel1.Show();
+                panel1.BackColor = Color.Red;
+                TmrMensaje.Start();
             }
+        }
+
+        private void TmrMensaje_Tick(object sender, EventArgs e)
+        {
+            panel1.Hide();
+            TmrMensaje.Stop();
+        }
+
+        private void panel(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAgregarTelefono_Click(object sender, EventArgs e)
+        {
+            DgvTelefono.Rows.Add(new []{CmbTipoTelefono.SelectedItem,TxtTelefono.Text});
+        }
+
+        private void BtnRemoverTelefono_Click(object sender, EventArgs e)
+        {
+            if (DgvTelefono.CurrentRow == null)
+            {
+                return;
+            }
+
+            DgvTelefono.Rows.RemoveAt(DgvTelefono.CurrentRow.Index);
         }
     }
 }

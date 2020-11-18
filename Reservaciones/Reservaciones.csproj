@@ -94,7 +94,10 @@
   <ItemGroup>
     <Compile Include="ConexionDB.cs" />
     <Compile Include="DAO\ClienteDAO.cs" />
+    <Compile Include="DAO\Commands.cs" />
+    <Compile Include="DAO\ProfesionalDAO.cs" />
     <Compile Include="Models\ClienteModel.cs" />
+    <Compile Include="Models\ProfesionalModel.cs" />
     <Compile Include="Models\TelefonoClienteModel.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
