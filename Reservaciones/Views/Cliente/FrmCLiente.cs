@@ -15,13 +15,13 @@ namespace Reservaciones.Views.Cliente
     public partial class FrmCLiente : Form
     {
         ClienteDAO clienteDAO = new ClienteDAO();
-
+        DataTable ClienteData, TelefonoData;
         public FrmCLiente()
         {
             InitializeComponent();
             panel1.Hide();
-            var data = clienteDAO.GetClientes();
-            DGVCliente.DataSource = data;
+            ClienteData = clienteDAO.GetClientes().ToDataTable();
+            DGVCliente.DataSource = ClienteData;
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
@@ -86,6 +86,31 @@ namespace Reservaciones.Views.Cliente
             }
 
             DgvTelefono.Rows.RemoveAt(DgvTelefono.CurrentRow.Index);
+        }
+
+        private void DGVCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddDay_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
+        {
+          
+        }
+
+        private void DGVCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+          //  TelefonoData = 
         }
     }
 }

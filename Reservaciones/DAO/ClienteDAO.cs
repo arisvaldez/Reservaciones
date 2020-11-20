@@ -46,7 +46,14 @@ namespace Reservaciones.DAO
         public List<ClienteModel> GetClientes()
         {
             string query = $"SELECT * FROM cliente";
-            return Commands.Query<ClienteModel>(query);
+            var clienteList = Commands.Query<ClienteModel>(query);
+
+            foreach (var item in clienteList)
+            {
+                item.Telefonos = GetTelefonoClientes(item.Id);
+            }
+
+            return clienteList;
         }
 
         public List<TelefonoClienteModel> GetTelefonoClientes(int id) 

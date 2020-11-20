@@ -42,6 +42,8 @@
             this.BtnRemoverTelefono = new System.Windows.Forms.Button();
             this.DGVCliente = new System.Windows.Forms.DataGridView();
             this.DgvTelefono = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LblMensaje = new System.Windows.Forms.Label();
             this.TmrMensaje = new System.Windows.Forms.Timer(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
@@ -49,8 +51,6 @@
             this.TxtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTelefono)).BeginInit();
             this.panel1.SuspendLayout();
@@ -159,8 +159,11 @@
             this.DGVCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVCliente.Location = new System.Drawing.Point(12, 389);
             this.DGVCliente.Name = "DGVCliente";
+            this.DGVCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DGVCliente.Size = new System.Drawing.Size(887, 186);
             this.DGVCliente.TabIndex = 11;
+            this.DGVCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVCliente_CellClick);
+            this.DGVCliente.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGVCliente_CellDoubleClick);
             // 
             // DgvTelefono
             // 
@@ -177,6 +180,18 @@
             this.DgvTelefono.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DgvTelefono.Size = new System.Drawing.Size(388, 150);
             this.DgvTelefono.TabIndex = 12;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.ReadOnly = true;
+            // 
+            // Numero
+            // 
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
             // 
             // LblMensaje
             // 
@@ -240,18 +255,6 @@
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 18;
             this.label6.Text = "Numero";
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.ReadOnly = true;
-            // 
-            // Numero
-            // 
-            this.Numero.HeaderText = "Numero";
-            this.Numero.Name = "Numero";
-            this.Numero.ReadOnly = true;
             // 
             // FrmCLiente
             // 
