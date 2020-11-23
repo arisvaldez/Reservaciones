@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Reservaciones.Models
 {
-    class TelefonoClienteModel
+   public  class TelefonoClienteModel
     {
         public int IdCliente { get; set; }
         public string Numero { get; set; }

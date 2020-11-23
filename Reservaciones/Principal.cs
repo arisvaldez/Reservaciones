@@ -1,4 +1,5 @@
-﻿using Reservaciones.Views.Cliente;
+﻿using Reservaciones.Cita;
+using Reservaciones.Views.Cliente;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,6 +51,23 @@ namespace Reservaciones
         private void MAVisitantes_Click(object sender, EventArgs e)
         {
             new FrmCLiente().Show();
+        }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new VisorDeReportes() { 
+            MdiParent = this,
+            Visible = true
+            };
+        }
+
+        private void MCReservas_Click(object sender, EventArgs e)
+        {
+            new CreadorDeCitas() {
+            MdiParent = this,
+            
+            Visible = true
+            };
         }
     }
 }

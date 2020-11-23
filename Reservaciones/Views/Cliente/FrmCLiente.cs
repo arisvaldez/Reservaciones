@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pabo.Calendar;
 
 namespace Reservaciones.Views.Cliente
 {
@@ -22,13 +23,15 @@ namespace Reservaciones.Views.Cliente
             panel1.Hide();
             ClienteData = clienteDAO.GetClientes().ToDataTable();
             DGVCliente.DataSource = ClienteData;
+           
+            
         }
 
         private void BtnRegistrar_Click(object sender, EventArgs e)
         {
             ClienteModel modelo = new ClienteModel();
             modelo.Nombre = TxtNombre.Text;
-            modelo.Apellido = TxtNombre.Text;
+            modelo.Apellido = TxtApellido.Text;
             modelo.TipoDocumento = CmbTipoDocumento.SelectedItem.ToString();
             modelo.Documento = TxtNumeroDocumento.Text;
            
@@ -106,6 +109,11 @@ namespace Reservaciones.Views.Cliente
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
           
+        }
+
+        private void FrmCLiente_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void DGVCliente_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reservaciones.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Reservaciones.Models
 {
-    class ClienteModel
+    public class ClienteModel:IModel
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
@@ -14,6 +15,7 @@ namespace Reservaciones.Models
         public string Documento { get; set; }
         public string TipoDocumento { get; set; }
         public List<TelefonoClienteModel> Telefonos { get; set; }
+        public Tipos Tipo { get; set; } = Tipos.CLIENTE;
     }
 
 }

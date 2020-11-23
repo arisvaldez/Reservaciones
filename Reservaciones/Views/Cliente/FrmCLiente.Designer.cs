@@ -281,6 +281,7 @@
             this.Controls.Add(this.TxtNombre);
             this.Name = "FrmCLiente";
             this.Text = "FrmCLiente";
+            this.Load += new System.EventHandler(this.FrmCLiente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTelefono)).EndInit();
             this.panel1.ResumeLayout(false);

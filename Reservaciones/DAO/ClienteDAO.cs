@@ -13,8 +13,8 @@ namespace Reservaciones.DAO
     {
         public bool Insert(ClienteModel model)
         {
-            string query = $"INSERT INTO cliente (nombre, apellido, tipo_documento, documento)"+
-                           $"VALUES('{model.Nombre}','{model.Apellido}','{model.TipoDocumento}','{model.Documento}')"+
+            string query = $"INSERT INTO cliente (nombre, apellido, tipo_documento, documento)" +
+                           $"VALUES('{model.Nombre}','{model.Apellido}','{model.TipoDocumento}','{model.Documento}')" +
                            $"SELECT LAST_INSERT_ID();";
 
             long id = Commands.ExecuteScalar(query);
@@ -42,7 +42,6 @@ namespace Reservaciones.DAO
             return Commands.ExecuteNonQuery(query);
         }
 
-
         public List<ClienteModel> GetClientes()
         {
             string query = $"SELECT * FROM cliente";
@@ -56,14 +55,10 @@ namespace Reservaciones.DAO
             return clienteList;
         }
 
-        public List<TelefonoClienteModel> GetTelefonoClientes(int id) 
+        public List<TelefonoClienteModel> GetTelefonoClientes(int id)
         {
             string query = $"SELECT id_cliente, tipo, numero FROM telefono_cliente WHERE id_cliente= {id}";
             return Commands.Query<TelefonoClienteModel>(query);
         }
-
-
-        
-        
     }
 }

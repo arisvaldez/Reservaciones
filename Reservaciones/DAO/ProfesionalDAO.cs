@@ -42,17 +42,29 @@ namespace Reservaciones.DAO
         }
 
 
-        public List<ProfesionalModel> GetProfesionales()
+        public List<ProfesionalModel> Get(string documento = "None")
         {
             string query = $"SELECT * FROM profesional";
+            
+            if (documento != "None")
+                query += $" WHERE documento ={documento}";
+
             return Commands.Query<ProfesionalModel>(query);
         }
-
 
         public List<TelefonoProfesionalModel> GetTelefonoProfesional(int id) 
         {
             string query = $"SELECT id_profesional, tipo, numero FROM telefono_profesional WHERE id_profesional= {id}";
             return Commands.Query<TelefonoProfesionalModel>(query);
+        }
+
+        public List<DisponibilidadProfesionalModel> GetDisponibilidadProfesional(int id ,int dia = -1) 
+        {
+            string query = $"SELECT * FROM disponibilidad WHERE id_profesional = {id}";
+            if (dia >= 0)
+                query = query + $" AND id_dia = {dia}";
+
+            return Commands.Query<DisponibilidadProfesionalModel>(query);
         }
     }
 }
