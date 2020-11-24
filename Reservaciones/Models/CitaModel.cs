@@ -14,6 +14,7 @@ namespace Reservaciones.Models
         public int IdEstado { get; set; }
         public int IdDia { get; set; }
         public string Hora { get; set; }
+        public string FechaCita { get; set; }
         public DateTime Creado { get; set; }
     }
 }

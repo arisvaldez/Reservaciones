@@ -20,16 +20,15 @@ namespace Reservaciones.Cita
     {
         private int IdProfesional = 0;
         private int IdCliente = 0;
-        
+
+        private DateItem[] dateItems;
+
+        private ProfesionalDAO profesionalDAO = new ProfesionalDAO();
+        private CitaDAO citaDAO = new CitaDAO();
         public CreadorDeCitas()
         {
             InitializeComponent();
-            var item = new DateItem();
-            item.Date = new DateTime(2020, 11, 25);
-            item.Enabled = false;
-            item.BackColor1 = Color.Red;
-
-            DisponibilidadCalendar.AddDateInfo(item);
+            
             DisponibilidadCalendar.SelectionMode = mcSelectionMode.One;
 
         
@@ -68,6 +67,7 @@ namespace Reservaciones.Cita
                 var item = (ClienteModel)model;
                 LblClienteNombre.Text = $"{item.Nombre} {item.Apellido}";
                 LblClienteDocumento.Text = item.Documento;
+                IdCliente = Convert.ToInt32(item.Id);
             }
 
             else if (model.Tipo == Tipos.PROFESIONAL)
@@ -77,6 +77,20 @@ namespace Reservaciones.Cita
                 IdProfesional = item.Id;
                 LblProfesionalNombre.Text = $"{item.Nombre} {item.Apellido}";
                 LblProfesion.Text = item.Profesion;
+
+                dateItems = new DateItem[366];
+                
+                var diasDisponibles = profesionalDAO.GetDisponibilidadProfesional(IdProfesional);
+
+                DiasNoLaborables();
+                
+                foreach (var itemDay in diasDisponibles)
+                {
+                    DiasLaborables(itemDay.IdDia);
+                }
+                
+                DisponibilidadCalendar.AddDateInfo(dateItems);
+                DisponibilidadCalendar.Refresh();
             }
         }
 
@@ -99,23 +113,78 @@ namespace Reservaciones.Cita
         private void DisponibilidadCalendar_DaySelected(object sender, DaySelectedEventArgs e)
         {
             string[] m_daysSelected = e.Days;
-            UpdateComboHoras(Convert.ToInt32(Convert.ToDateTime(m_daysSelected[0].ToString()).DayOfWeek));
-            
+            var fechaSeleccionadaDisponinilidad = citaDAO.GetDisponibilidadProfesionalPorFecha(IdProfesional, m_daysSelected[0]);
+            int dia = Convert.ToInt32(Convert.ToDateTime(m_daysSelected[0].ToString()).DayOfWeek);
+            UpdateComboHoras(fechaSeleccionadaDisponinilidad);
+           
         }
 
-        private void UpdateComboHoras(int dia) 
+        private void UpdateComboHoras(List<CitaModel> DiasAgendados) 
         {
             CMBHora.Items.Clear();
-            CMBHora.Items.AddRange(ObtenerTodasLasHoras().ToArray());
+            var horas = ObtenerTodasLasHoras();
+            var lista = new List<string>();
 
-            var horasDisponibles = new ProfesionalDAO().GetDisponibilidadProfesional(IdProfesional, dia);
-
-
-            foreach (var item in horasDisponibles)
+            foreach (var item in DiasAgendados)
             {
-                MessageBox.Show(" Id Dia "+item.IdDia.ToString());
-                MessageBox.Show("Hora Inicio "+item.HoraInicio);
+                lista.Add(item.Hora);
             }
+
+            var horasTemp = horas.Except(lista).ToList();
+
+            CMBHora.Items.AddRange(horasTemp.ToArray());
+        }
+
+        private void DiasNoLaborables()
+        {
+            DateTime dt = new DateTime(2020, 01, 01);
+
+            for (int i = 0; i <= 365; i++)
+            {
+                var di = new DateItem();
+                di.Date = dt.AddDays(i);
+                di.Enabled = false;
+                dateItems[i] = di;
+
+            }
+        }
+
+        private void DiasLaborables(int dia)
+        {
+            DateTime dt = new DateTime(2020, 01, 01);
+
+            for (int i = 0; i <= 365; i++)
+            {
+                var d = dt.AddDays(i);
+                if (dateItems[i].Date == d)
+                {
+                    if (d.DayOfWeek == (DayOfWeek)dia)
+                    {
+                        var di = new DateItem();
+                        di.Date = d;
+                        di.BackColor1 = Color.Green;
+                        dateItems[i] = di;
+                    }
+                }
+            }
+        }
+
+        private void BtnAgendar_Click(object sender, EventArgs e)
+        {
+
+            if (DisponibilidadCalendar.SelectedDates.Count == 0)
+            {
+                MessageBox.Show("Selecciona una fecha");
+                return;
+            }
+            citaDAO.Insert(new CitaModel()
+            {
+                IdCliente = this.IdCliente,
+                IdProfesional = this.IdProfesional,
+                IdDia = Convert.ToInt32(DisponibilidadCalendar.SelectedDates[0].DayOfWeek),
+                Hora = CMBHora.SelectedItem.ToString(),
+                FechaCita = DisponibilidadCalendar.SelectedDates[0].ToShortDateString()
+            });
         }
     }
 }

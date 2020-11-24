@@ -39,6 +39,7 @@
             this.LblProfesion = new System.Windows.Forms.Label();
             this.LblClienteDocumento = new System.Windows.Forms.Label();
             this.LblClienteNombre = new System.Windows.Forms.Label();
+            this.BtnAgendar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DisponibilidadCalendar
@@ -85,6 +86,8 @@
             // 
             // CMBHora
             // 
+            this.CMBHora.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMBHora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CMBHora.FormattingEnabled = true;
             this.CMBHora.Location = new System.Drawing.Point(266, 216);
             this.CMBHora.Name = "CMBHora";
@@ -154,11 +157,22 @@
             this.LblClienteNombre.TabIndex = 10;
             this.LblClienteNombre.Text = "Nombre";
             // 
+            // BtnAgendar
+            // 
+            this.BtnAgendar.Location = new System.Drawing.Point(386, 395);
+            this.BtnAgendar.Name = "BtnAgendar";
+            this.BtnAgendar.Size = new System.Drawing.Size(78, 28);
+            this.BtnAgendar.TabIndex = 12;
+            this.BtnAgendar.Text = "Agendar";
+            this.BtnAgendar.UseVisualStyleBackColor = true;
+            this.BtnAgendar.Click += new System.EventHandler(this.BtnAgendar_Click);
+            // 
             // CreadorDeCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 450);
+            this.Controls.Add(this.BtnAgendar);
             this.Controls.Add(this.LblClienteDocumento);
             this.Controls.Add(this.LblClienteNombre);
             this.Controls.Add(this.LblProfesion);
@@ -190,5 +204,6 @@
         private System.Windows.Forms.Label LblProfesion;
         private System.Windows.Forms.Label LblClienteDocumento;
         private System.Windows.Forms.Label LblClienteNombre;
+        private System.Windows.Forms.Button BtnAgendar;
     }
 }

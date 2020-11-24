@@ -58,7 +58,7 @@ namespace Reservaciones.DAO
             return Commands.Query<TelefonoProfesionalModel>(query);
         }
 
-        public List<DisponibilidadProfesionalModel> GetDisponibilidadProfesional(int id ,int dia = -1) 
+        public List<DisponibilidadProfesionalModel> GetDisponibilidadProfesional(int id , int dia = -1) 
         {
             string query = $"SELECT * FROM disponibilidad WHERE id_profesional = {id}";
             if (dia >= 0)
