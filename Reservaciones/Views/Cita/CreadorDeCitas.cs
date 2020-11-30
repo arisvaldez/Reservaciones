@@ -28,7 +28,9 @@ namespace Reservaciones.Cita
         public CreadorDeCitas()
         {
             InitializeComponent();
+
             
+
             DisponibilidadCalendar.SelectionMode = mcSelectionMode.One;
 
         
@@ -114,9 +116,8 @@ namespace Reservaciones.Cita
         {
             string[] m_daysSelected = e.Days;
             var fechaSeleccionadaDisponinilidad = citaDAO.GetDisponibilidadProfesionalPorFecha(IdProfesional, m_daysSelected[0]);
-            int dia = Convert.ToInt32(Convert.ToDateTime(m_daysSelected[0].ToString()).DayOfWeek);
             UpdateComboHoras(fechaSeleccionadaDisponinilidad);
-           
+            LblFechaCita.Text = m_daysSelected[0];
         }
 
         private void UpdateComboHoras(List<CitaModel> DiasAgendados) 
@@ -136,6 +137,20 @@ namespace Reservaciones.Cita
         }
 
         private void DiasNoLaborables()
+        {
+            DateTime dt = new DateTime(2020, 01, 01);
+
+            for (int i = 0; i <= 365; i++)
+            {
+                var di = new DateItem();
+                di.Date = dt.AddDays(i);
+                di.Enabled = false;
+                dateItems[i] = di;
+
+            }
+        }
+
+        private void RemoverCALendarioFormato()
         {
             DateTime dt = new DateTime(2020, 01, 01);
 
@@ -177,7 +192,7 @@ namespace Reservaciones.Cita
                 MessageBox.Show("Selecciona una fecha");
                 return;
             }
-            citaDAO.Insert(new CitaModel()
+            var result = citaDAO.Insert(new CitaModel()
             {
                 IdCliente = this.IdCliente,
                 IdProfesional = this.IdProfesional,
@@ -185,6 +200,11 @@ namespace Reservaciones.Cita
                 Hora = CMBHora.SelectedItem.ToString(),
                 FechaCita = DisponibilidadCalendar.SelectedDates[0].ToShortDateString()
             });
+
+            if(result)
+                MessageBox.Show("Cita Generada Correctamente");
+            else
+                MessageBox.Show("Ocurrio un error inesperado");
         }
     }
 }

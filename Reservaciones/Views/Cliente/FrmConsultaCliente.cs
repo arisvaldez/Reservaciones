@@ -29,7 +29,7 @@ namespace Reservaciones.Views.Cliente
 
         private void TxtFiltar_TextChanged(object sender, EventArgs e)
         {
-            data.DefaultView.RowFilter = $"nombre LIKE '%{TxtFiltrar.Text}%' OR apellido LIKE '%{TxtFiltrar.Text}%' OR Cedula = {TxtFiltrar.Text}";
+            data.DefaultView.RowFilter = $"nombre LIKE '%{TxtFiltrar.Text}%' OR apellido LIKE '%{TxtFiltrar.Text}%' OR Documento = {TxtFiltrar.Text}";
         }
 
         private void DgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

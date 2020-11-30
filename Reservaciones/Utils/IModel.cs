@@ -11,5 +11,5 @@ namespace Reservaciones.Utils
         Tipos Tipo { get; set; }
     }
 
-    public enum Tipos {CLIENTE, PROFESIONAL}
+    
 }

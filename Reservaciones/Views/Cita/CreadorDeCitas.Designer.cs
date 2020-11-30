@@ -40,6 +40,8 @@
             this.LblClienteDocumento = new System.Windows.Forms.Label();
             this.LblClienteNombre = new System.Windows.Forms.Label();
             this.BtnAgendar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblFechaCita = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // DisponibilidadCalendar
@@ -47,6 +49,7 @@
             this.DisponibilidadCalendar.ActiveMonth.Month = 11;
             this.DisponibilidadCalendar.ActiveMonth.Year = 2020;
             this.DisponibilidadCalendar.Culture = new System.Globalization.CultureInfo("en-US");
+            this.DisponibilidadCalendar.FirstDayOfWeek = 1;
             this.DisponibilidadCalendar.Footer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.DisponibilidadCalendar.Header.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.DisponibilidadCalendar.Header.TextColor = System.Drawing.Color.White;
@@ -58,6 +61,7 @@
             this.DisponibilidadCalendar.Month.DateFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DisponibilidadCalendar.Month.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.DisponibilidadCalendar.Name = "DisponibilidadCalendar";
+            this.DisponibilidadCalendar.SelectionMode = Pabo.Calendar.mcSelectionMode.One;
             this.DisponibilidadCalendar.Size = new System.Drawing.Size(217, 184);
             this.DisponibilidadCalendar.TabIndex = 1;
             this.DisponibilidadCalendar.Weekdays.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -167,11 +171,33 @@
             this.BtnAgendar.UseVisualStyleBackColor = true;
             this.BtnAgendar.Click += new System.EventHandler(this.BtnAgendar_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(12, 395);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 26);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Fecha Cita";
+            // 
+            // LblFechaCita
+            // 
+            this.LblFechaCita.AutoSize = true;
+            this.LblFechaCita.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFechaCita.Location = new System.Drawing.Point(135, 394);
+            this.LblFechaCita.Name = "LblFechaCita";
+            this.LblFechaCita.Size = new System.Drawing.Size(70, 26);
+            this.LblFechaCita.TabIndex = 14;
+            this.LblFechaCita.Text = "label5";
+            // 
             // CreadorDeCitas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 450);
+            this.Controls.Add(this.LblFechaCita);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnAgendar);
             this.Controls.Add(this.LblClienteDocumento);
             this.Controls.Add(this.LblClienteNombre);
@@ -205,5 +231,7 @@
         private System.Windows.Forms.Label LblClienteDocumento;
         private System.Windows.Forms.Label LblClienteNombre;
         private System.Windows.Forms.Button BtnAgendar;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblFechaCita;
     }
 }

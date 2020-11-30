@@ -11,4 +11,6 @@ namespace Reservaciones
 
     }
 
+    public enum EstadoCita { EnProgreso = 1, PostPuesta, Agendada, Cancelada }
+    public enum Tipos { CLIENTE, PROFESIONAL }
 }
